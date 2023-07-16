@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,14 +42,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.viewHolder>{
         Note note = list.get(position);
         holder.noteTextView.setText(note.getNote());
 
+        holder.deleteNoteBtn.setVisibility(View.GONE);
+
         if(holder.deleteNoteBtn.getVisibility() == View.GONE) {
-            holder.itemView.setOnClickListener(view -> {
+            holder.downBtn.setOnClickListener(view -> {
                 holder.deleteNoteBtn.setVisibility(View.VISIBLE);
+                holder.downBtn.setImageResource(R.drawable.baseline_keyboard_arrow_up_24);
             });
         }
-        else {
-            holder.itemView.setOnClickListener(view -> {
+        if(holder.deleteNoteBtn.getVisibility() == View.VISIBLE) {
+            holder.downBtn.setOnClickListener(view -> {
                 holder.deleteNoteBtn.setVisibility(View.GONE);
+                holder.downBtn.setImageResource(R.drawable.baseline_keyboard_arrow_down_24);
             });
         }
 
@@ -65,10 +70,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.viewHolder>{
     public static class viewHolder extends RecyclerView.ViewHolder {
         TextView noteTextView;
         Button deleteNoteBtn;
+        ImageButton downBtn;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             noteTextView = itemView.findViewById(R.id.noteTextView);
             deleteNoteBtn = itemView.findViewById(R.id.deleteNoteBtn);
+            downBtn = itemView.findViewById(R.id.downBtn);
         }
     }
 }
