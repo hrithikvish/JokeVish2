@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Jokes"
+        android:id="@+id/jokesNav"
+        android:icon="@drawable/joke_nav_icon"/>
+    <item android:title="Quotes"
+        android:id="@+id/quotesNav"
+        android:icon="@drawable/quote_nav_icon"/>
+    <item android:title="Notes"
+        android:id="@+id/roomDbNav"
+        android:icon="@drawable/baseline_notes_24"/>
+    <item android:title="About Us"
+        android:id="@+id/aboutNav"
+        android:icon="@drawable/about_nav_icon"/>
+</menu>
